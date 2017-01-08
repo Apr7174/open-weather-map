@@ -4,7 +4,7 @@ angular.module('OWMApp', ['ngRoute'])
             templateUrl : 'home.html',
             controller : 'HomeCtrl',
             controllerAs: 'vm'
-        }).when('!/city', {
+        }).when('/city', {
             templateUrl : 'city.html',
             controller : 'CityCtrl',
             controllerAs: 'vm'
