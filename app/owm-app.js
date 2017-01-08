@@ -15,5 +15,5 @@ angular.module('OWMApp', ['ngRoute'])
     }])
 	.controller('CityCtrl', [function() {
 	    var vm = this;
-	    vm.city = 'New York';
+	    vm.city = $routeParams.city;
 	}]);
