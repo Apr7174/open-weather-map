@@ -26,11 +26,19 @@ angular.module('OWMApp', ['ngRoute'])
             template: '<p>Error - City Not in List</p>'
         }).otherwise('/error');
     }])
-    .run(['$rootScope', '$location', function($rootScope, $location) {
+    .run(function($rootScope, $location, $timeout) {
         $rootScope.$on('$routeChangeError', function() {
             $location.path('/error');
         });
-    }])
+        $rootScope.$on('$routeChangeStart', function() {
+            $rootScope.isLoading = true;
+        });
+        $rootScope.$on('$routeChangeSuccess', function() {
+            $timeout(function() {
+                $rootScope.isLoading = false;
+            }, 1000);
+        });
+    })
     .controller('HomeCtrl', [function() {
         //empty for now
     }])
